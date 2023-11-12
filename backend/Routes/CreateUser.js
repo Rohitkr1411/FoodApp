@@ -57,15 +57,11 @@ try{
    }
 
    const saltRounds = 10; // Adjust this according to your security needs
-const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-   const pwdCompare= await bcrypt.compare(req.body.password,hashedPassword);
 
-  
+   const pwdCompare= await bcrypt.compare(req.body.password,userData.password);
 
-   if(!pwdCompare){
-   return res.status(400).json({ errors:"Try logging in with correct password!" });
-   }
    
+   if(pwdCompare){
    const data={
     user:{
         id:userData.id
@@ -74,6 +70,11 @@ const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
    const authToken= await jwt.sign(data,jwtSecret);
 
    return res.status(200).json({success:true,authToken:authToken});
+   }
+
+   else{
+    return res.status(400).json({ errors:"Try logging in with correct password!" });
+   }
 }
 catch(err)
 {
