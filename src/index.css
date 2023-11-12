@@ -5,9 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'NHaasGroteskDSPro-65Md' !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#carousel{
+  max-height:500px;
+}
+
+.card-img-top {
+  width: 18rem;
+  height: 10vw;
+  object-fit: contain !important;
+}
+
+img {
+  width: 100%; /* image box size as % of container, see step 1 */
+  height: 100%; /* image box size as % of container, see step 1 */
+  object-fit: cover; /* matching of image pixels to image box, see step 2 */
 }
