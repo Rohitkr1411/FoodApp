@@ -52,7 +52,7 @@ export default function Signup() {
     if (json.success) {
       //save the auth toke to local storage and redirect
       localStorage.setItem('authToken', json.authToken)
-      navigate("/")
+      navigate("/login")
 
     }
     else {
